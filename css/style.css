@@ -1,0 +1,425 @@
+ body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+                'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+                'Noto Color Emoji';
+            margin: 0;
+            padding: 20px;
+            background-color: #f7f8fc; /* Lighter, modern background */
+            display: flex;
+            flex-direction: column; /* Allow footer to sit below container */
+            align-items: center; /* Center .container and .page-footer */
+            min-height: 100vh;
+            color: #333; /* Default text color */
+            box-sizing: border-box; /* Ensure padding doesn't add to width */
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px; /* Increased padding */
+            border-radius: 12px; /* Softer, larger radius */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07); /* Softer, more diffused shadow */
+            width: 100%;
+            max-width: 900px; /* Slightly reduced for a more focused look */
+            margin-bottom: 30px; /* Space before the footer */
+            box-sizing: border-box;
+        }
+        h1 {
+            font-size: 26px; /* Slightly adjusted */
+            font-weight: 700; /* Bold */
+            color: #2d3748; /* Darker, less saturated blue-gray */
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-align: center; /* Center title on all screens */
+        }
+        .subtitle {
+            font-size: 15px; /* Slightly larger for readability */
+            color: #718096; /* Softer gray */
+            margin-bottom: 35px; /* Increased spacing */
+            text-align: center; /* Center subtitle on all screens */
+        }
+
+        .input-section {
+            display: flex;
+            align-items: stretch; /* Make items same height */
+            border: 1px solid #e2e8f0; /* Lighter border */
+            border-radius: 8px; /* Consistent rounded corners */
+            padding: 0;
+            margin-bottom: 35px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03); /* Subtle inner shadow for depth */
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .input-section:focus-within {
+            border-color: #4a90e2; /* Highlight on focus */
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+        }
+
+        .input-section input[type="email"] {
+            flex-grow: 1;
+            padding: 14px 18px; /* Increased padding */
+            border: none;
+            border-right: 1px solid #e2e8f0;
+            font-size: 16px;
+            outline: none;
+            border-radius: 8px 0 0 8px;
+            color: #2d3748;
+            background-color: transparent;
+            min-width: 150px; /* Prevent input from becoming too small */
+        }
+         .input-section input[type="email"]::placeholder {
+            color: #a0aec0; /* Lighter placeholder */
+        }
+
+        .input-section select {
+            padding: 14px 25px 14px 18px; /* Adjusted padding for select to make space for arrow (L R T B) */
+            border: none;
+            border-right: 1px solid #e2e8f0;
+            font-size: 15px;
+            background-color: #fff; /* Ensure select background is white */
+            outline: none;
+            color: #4a5568;
+            cursor: pointer;
+            appearance: none; /* Remove default arrow for custom styling if desired */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23a0aec0'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 1.25em 1.25em;
+            line-height: normal; /* Ensure consistent height */
+        }
+        .input-section select:last-of-type { /* Remove border for the last select before button */
+             border-right: none;
+        }
+        /* Specific border radius for selects in default horizontal layout is not needed if they are middle elements */
+        /* .input-section select#avatar-size { border-radius: 0; } */
+        /* .input-section select#avatar-service { border-radius: 0; } */
+
+
+        .input-section button#check-btn {
+            background-color: #3490dc; /* Modern blue */
+            color: #fff;
+            padding: 14px 22px;
+            border: none;
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600; /* Slightly bolder */
+            white-space: nowrap;
+            outline: none;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+        .input-section button#check-btn:hover {
+            background-color: #2779bd; /* Darker shade on hover */
+        }
+         .input-section button#check-btn:active {
+            transform: translateY(1px); /* Subtle press effect */
+        }
+        .input-section button#check-btn:disabled {
+            background-color: #cbd5e0;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Avatar Display Section Styling */
+        .avatar-display-section {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px; /* Increased top margin */
+            margin-bottom: 30px; /* Increased bottom margin */
+            min-height: 120px; /* Slightly larger min-height */
+        }
+        .avatar-image-container {
+            width: 110px; /* Slightly larger avatar */
+            height: 110px;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: #edf2f7; /* Lighter placeholder background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #fff; /* White border for a "floating" effect */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Shadow for the avatar */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .avatar-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+        .result-section {
+            margin-bottom: 30px;
+        }
+        .result-section h2 {
+            font-size: 16px; /* Slightly smaller, more refined */
+            font-weight: 600;
+            color: #4a5568; /* Softer dark gray */
+            margin-top: 0;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #e2e8f0; /* Subtle separator */
+            padding-bottom: 8px;
+        }
+        .result-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 18px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background-color: #f8fafc; /* Very light background for content */
+            min-height: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+        .result-content span {
+            font-size: 14px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+            color: #2d3748;
+            word-break: break-all;
+            margin-right: 15px;
+            line-height: 1.5; /* Improved line height */
+            flex-grow: 1; /* Allow span to take available space */
+        }
+        .copy-btn {
+            background-color: #38a169; /* Modern green */
+            color: #fff;
+            padding: 9px 16px; /* Adjusted padding */
+            border: none;
+            border-radius: 6px; /* Consistent radius */
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            flex-shrink: 0; /* Prevent button from shrinking */
+        }
+        .copy-btn:hover {
+            background-color: #2f855a;
+        }
+        .copy-btn:active {
+            transform: translateY(1px);
+        }
+        .copy-btn.copied {
+            background-color: #2f855a;
+        }
+
+        .status-message {
+            margin-top: 25px;
+            margin-bottom: 25px;
+            font-size: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+            box-sizing: border-box;
+            opacity: 0;
+            max-height: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+            border-width: 0px;
+            overflow: hidden;
+            transition: opacity 0.3s ease-in-out, 
+                        max-height 0.4s ease-in-out, 
+                        padding-top 0.4s ease-in-out, 
+                        padding-bottom 0.4s ease-in-out,
+                        border-width 0.4s ease-in-out;
+        }
+        .status-message.status-visible {
+            opacity: 1;
+            max-height: 100px; /* Adjust if messages can be longer */
+            padding-top: 12px;
+            padding-bottom: 12px;
+            border-width: 1px;
+        }
+        .status-message.success {
+            background-color: #e6fffa;
+            border-color: #38b2ac;
+            color: #234e52;
+        }
+        .status-message.error {
+            background-color: #fff5f5;
+            border-color: #f56565;
+            color: #c53030;
+        }
+        .status-message.info {
+            background-color: #ebf8ff;
+            border-color: #63b3ed;
+            color: #2c5282;
+        }
+
+        .disclaimer {
+            font-size: 12px;
+            color: #718096; /* Softer gray for disclaimer */
+            text-align: center;
+            margin-top: 20px; /* Reduced margin as it's inside the container now */
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0; /* Separator line */
+        }
+
+        .page-footer {
+            width: 100%;
+            max-width: 900px;
+            margin-top: 20px; /* Space from container or bottom of viewport */
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .page-footer h3 {
+            font-size: 16px;
+            color: #4a5568;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .service-provider-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px 15px; /* Row and column gap */
+        }
+        .service-provider-list li {
+            font-size: 14px;
+        }
+        .service-provider-list a {
+            color: #3490dc;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .service-provider-list a:hover {
+            color: #2779bd;
+            text-decoration: underline;
+        }
+
+        /* Responsive Adjustments */
+        /* For tablets and larger mobile phones */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px; /* Reduce body padding */
+            }
+            .container, .page-footer {
+                padding: 20px; /* Reduce container padding */
+            }
+            h1 {
+                font-size: 22px;
+            }
+            .subtitle {
+                font-size: 14px;
+                margin-bottom: 25px;
+            }
+
+            .input-section {
+                flex-direction: column; /* Stack elements vertically */
+                border-radius: 8px; /* Keep overall rounded corners */
+            }
+            .input-section input[type="email"],
+            .input-section select,
+            .input-section button#check-btn {
+                width: 100%; /* Make all elements full width */
+                box-sizing: border-box; /* Include padding and border in element's total width and height */
+                margin-bottom: -1px; /* Overlap borders for a cleaner look */
+            }
+            .input-section input[type="email"] {
+                border-right: none;
+                border-bottom: 1px solid #e2e8f0;
+                border-radius: 8px 8px 0 0; /* Top corners rounded */
+            }
+            .input-section select {
+                border-right: none;
+                border-bottom: 1px solid #e2e8f0;
+                border-radius: 0; /* No rounded corners for middle elements */
+                background-position: right 1rem center; /* Adjust arrow position slightly */
+            }
+            /* The last select before button might need specific styling if it's not the last child */
+            .input-section select:last-of-type {
+                 /* This rule is fine if it's the element directly before the button.
+                   If there could be other elements, a more specific selector might be needed.
+                   For this structure, it targets the second select. */
+            }
+            .input-section button#check-btn {
+                border-radius: 0 0 8px 8px; /* Bottom corners rounded */
+                margin-bottom: 0; /* No bottom margin for the last item */
+            }
+
+            .result-content {
+                flex-direction: column; /* Stack text and button */
+                align-items: flex-start; /* Align items to the start */
+            }
+            .result-content span {
+                margin-right: 0;
+                margin-bottom: 10px; /* Space between text and button */
+            }
+            .copy-btn {
+                align-self: flex-start; /* Align button to the start */
+                /* width: auto; To make button not full width */
+            }
+        }
+
+        /* For smaller mobile phones */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .container, .page-footer {
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+            h1 {
+                font-size: 20px;
+            }
+            .subtitle {
+                font-size: 13px;
+                margin-bottom: 20px;
+            }
+            .input-section input[type="email"],
+            .input-section select,
+            .input-section button#check-btn {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                font-size: 15px;
+            }
+             .input-section select {
+                padding-left: 15px;
+                padding-right: 25px; /* Keep space for arrow */
+            }
+            .input-section button#check-btn {
+                font-size: 15px;
+            }
+
+            .result-section h2 {
+                font-size: 15px;
+            }
+            .result-content {
+                padding: 12px 15px;
+            }
+            .result-content span {
+                font-size: 13px;
+            }
+            .copy-btn {
+                padding: 8px 14px;
+                font-size: 13px;
+            }
+            .status-message {
+                font-size: 14px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            .avatar-image-container {
+                width: 90px;
+                height: 90px;
+            }
+             .disclaimer {
+                font-size: 11px;
+            }
+            .page-footer h3 {
+                font-size: 15px;
+            }
+            .service-provider-list li {
+                font-size: 13px;
+            }
+            .service-provider-list {
+                gap: 8px 12px;
+            }
+        }
