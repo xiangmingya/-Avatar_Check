@@ -1,5 +1,8 @@
 # 头像检测工具介绍文档
 
+![image](https://github.com/user-attachments/assets/749d7543-9eec-4932-9b41-871fb663aa44)
+
+
 ## 概述
 
 本文档介绍了“头像检测”HTML 页面的功能和技术实现。该页面是一个实用工具，允许用户输入邮箱地址，并选择一个头像托管服务商（如 Cravatar、Gravatar、WeAvatar、Libravatar）以及期望的头像尺寸，然后系统会检测该邮箱地址是否在所选服务商处设置了头像，并显示相关信息和头像预览。
