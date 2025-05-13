@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>头像检测</title>
+    <script src=".js//jquery.min.js"></script>
+    <script src="./js/md5.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>头像检测</h1>
+        <p class="subtitle">输入完整邮箱地址后，选择对应的头像托管服务商系统会进行可用性检测。</p>
+
+        <div class="input-section">
+            <input type="email" id="email" placeholder="例如：1431258805@qq.com" required>
+            <select id="avatar-size">
+                <option value="80">80px</option>
+                <option value="40">40px</option>
+                <option value="120">120px</option>
+                <option value="200">200px</option>
+            </select>
+            <select id="avatar-service">
+                <option value="cravatar" selected>Cravatar</option>
+                <option value="gravatar">Gravatar</option>
+                <option value="weavatar">WeAvatar</option>
+                <option value="libravatar">Libravatar</option>
+            </select>
+            <button id="check-btn">检查头像</button>
+        </div>
+
+        <div id="status-message" class="status-message"></div>
+        
+        <div class="avatar-display-section" id="avatarDisplaySection">
+            <div class="avatar-image-container">
+                <img id="displayedAvatar" src="#" alt="用户头像">
+            </div>
+        </div>
+
+
+        <div class="result-section">
+            <h2>邮箱哈希值</h2>
+            <div class="result-content">
+                <span id="email-hash"></span>
+                <button id="copy-hash-btn" class="copy-btn">复制Hash</button>
+            </div>
+        </div>
+
+        <div class="result-section">
+            <h2>完整URL</h2>
+            <div class="result-content">
+                <span id="gravatar-url"></span>
+                <button id="copy-url-btn" class="copy-btn">复制URL</button>
+            </div>
+        </div>
+
+        <p class="disclaimer">*注意，Gravatar 服务在中国大陆不可用，预览可能会异常，请切换其他服务商测试。</p>
+    </div>
+
+    <footer class="page-footer">
+        <h3>服务商链接</h3>
+        <ul class="service-provider-list" id="serviceProviderListFooter">
+            </ul>
+    </footer>
+  <script src="./js/js.js"></script>
+</body>
+</html>
